@@ -53,6 +53,9 @@ export default class AlarmClockApp extends LightningElement {
                 this.isAlarmTriggered = true
                 this.ringtone.play()
                 this.ringtone.loop = true
+            }else{
+                this.isAlarmTriggered = false
+                this.ringtone.pause()
             }
             
         }, 1000)
