@@ -11,10 +11,14 @@ export default class AlarmClockApp extends LightningElement {
     meridiumSelected
     minuteSelected
     alarmTime
+    isAlarmTriggered = false
     isAlarmSet=false
 
     get isFieldNotSelected(){      //getter to disable set alarm button when no value is present
         return !(this.hourSelected && this.minuteSelected && this.meridiumSelected)
+    }
+    get shakeImage(){        //shanke image handler i.e; custom styling
+        return this.isAlarmTriggered ? 'shake':''
     }
 
     connectedCallback(){
@@ -45,7 +49,7 @@ export default class AlarmClockApp extends LightningElement {
             this.currentTime = `${hour}:${min}:${sec} ${ampm}`
 
             if(this.alarmTime === `${hour}:${min} ${ampm}`){
-                console.log("AlarmTriggered:")
+                this.isAlarmTriggered = true
             }
             
         }, 1000)
@@ -85,6 +89,7 @@ export default class AlarmClockApp extends LightningElement {
     }
     clearAlarmHandler(){   //calling child element function to reset value and handle the clear alarm functionality
         this.isAlarmSet = false 
+        this.isAlarmTriggered = false
         this.alarmTime=''
         const elements = this.template.querySelectorAll('c-clock-dropdown')
         Array.from(elements).forEach(element => {
