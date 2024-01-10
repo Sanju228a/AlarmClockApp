@@ -7,6 +7,10 @@ export default class AlarmClockApp extends LightningElement {
     hours =[]
     minutes= []
     meridiums = ['AM', 'PM']
+    hourSelected
+    meridiumSelected
+    minuteSelected
+
     connectedCallback(){
         this.currentTimeHandler()
         this.createHourOption()
