@@ -86,7 +86,9 @@ export default class AlarmClockApp extends LightningElement {
     clearAlarmHandler(){   //calling child element function to reset value and handle the clear alarm functionality
         this.isAlarmSet = false 
         this.alarmTime=''
-        const element = this.template.querySelectorAll('c-clock-dropdown')
-        Array.from(element)
+        const elements = this.template.querySelectorAll('c-clock-dropdown')
+        Array.from(elements).forEach(element => {
+            element.reset("")
+        });
     }
 }
