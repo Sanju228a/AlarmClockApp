@@ -1,0 +1,26 @@
+<!--
+   @description       : 
+   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+   @group             : 
+   @last modified on  : 01-09-2024
+   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+   -->
+   <template>
+    <div class="alarm-card">
+       <h1>Alarm Clock</h1>
+       <img src={clockImage} alt="Clock Image" height="200px" width="200px">
+       <h2>{currentTime}</h2>
+       <div class="slds-grid slds-gutters">
+          <div class="slds-col">
+             <c-clock-dropdown lable="Hour(s)" options={hours} unique-id="select-hours" onoptionhandler={optionhandler}></c-clock-dropdown>
+          </div>
+          <div class="slds-col">
+            <c-clock-dropdown lable="Minutes(s)" options={minutes} unique-id="select-minutes" onoptionhandler={optionhandler}></c-clock-dropdown>
+          </div>
+          <div class="slds-col">
+            <c-clock-dropdown lable="AM/PM" options={meridiums} unique-id="select-meridiums" onoptionhandler={optionhandler}></c-clock-dropdown>
+          </div>
+       </div>
+       <button class="slds-button slds-button_neutral slds-button_stretch">Set Alarm</button>
+    </div>
+ </template>
